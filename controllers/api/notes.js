@@ -1,4 +1,4 @@
-// ------------------------------------------------------------------------- setup/vars
+
 'use strict';
 const express = require('express'),
     router = express.Router(),
@@ -7,7 +7,7 @@ const express = require('express'),
     Article = require('../../models/article'),
     Note = require('../../models/note');
 
-// ------------------------------------------------------------------------- get notes
+
 router.get('/', function (req, res) {
     Note
         .find({})
@@ -21,7 +21,7 @@ router.get('/', function (req, res) {
         });
 });
 
-// ------------------------------------------------------------------------- add a note
+
 router.post('/:id', function (req, res) {
     let newNote = new Note(req.body);
     newNote.save(function (err, doc) {
@@ -45,7 +45,7 @@ router.post('/:id', function (req, res) {
     });
 });
 
-// ------------------------------------------------------------------------- delete a note
+
 router.delete('/:id', function (req, res) {
     Note.findByIdAndRemove(req.params.id, function (err, note) {
         if (err) {

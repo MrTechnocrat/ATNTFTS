@@ -21,5 +21,5 @@ NoteSchema.plugin(uniqueValidator);
 
 const Note = mongoose.model("Note", NoteSchema);
 
-// ------------------------------------------------------------------------- now export it
+
 module.exports = Note;

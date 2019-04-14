@@ -1,4 +1,4 @@
-// ------------------------------------------------------------------------- setup/vars
+
 'use strict';
 const express = require('express'),
     exphbs = require('express-handlebars'),
@@ -7,7 +7,7 @@ const express = require('express'),
     mongoose = require('mongoose'),
     methodOverride = require('method-override');
 
-// ------------------------------------------------------------------------- express
+
 const PORT = process.env.PORT || 3000;
 let app = express();
 
@@ -22,7 +22,7 @@ app
     .engine('handlebars', exphbs({ defaultLayout: 'main' }))
     .set('view engine', 'handlebars')
     .use(require('./controllers'));
-// ------------------------------------------------------------------------- mongoose
+
 
 mongoose.Promise = Promise;
 const dbURI = process.env.MONGODB_URI || "mongodb://localhost:27017/news";

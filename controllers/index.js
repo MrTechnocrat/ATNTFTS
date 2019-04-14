@@ -1,10 +1,3 @@
-0
-0 0 tbsampson / All - the - News - That - s - Fit - to - Scrape
-Code  Issues 0  Pull requests 0  Projects 0  Wiki  Insights
-All - the - News - That - s - Fit - to - Scrape / controllers / index.js
-@tbsampson tbsampson Had to remake this
-f19dfd4 on Sep 26, 2018
-59 lines(53 sloc)  1.56 KB
 
 'use strict';
 
@@ -12,7 +5,7 @@ const express = require('express'),
     router = express.Router(),
     Article = require('../models/article');
 
-// root route
+
 router.get('/', function (req, res) {
     Article
         .find({})
@@ -36,7 +29,7 @@ router.get('/', function (req, res) {
         });
 });
 
-// saved articles
+
 router.get('/saved', function (req, res) {
     Article
         .find({})
@@ -60,7 +53,7 @@ router.get('/saved', function (req, res) {
         });
 });
 
-// require controllers
+
 router.use('/api', require('./api'));
 
 module.exports = router;

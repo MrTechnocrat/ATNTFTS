@@ -1,4 +1,4 @@
-// ------------------------------------------------------------------------- setup/vars
+
 'use strict';
 const express = require('express'),
     router = express.Router(),
@@ -7,7 +7,7 @@ const express = require('express'),
     Article = require('../../models/article'),
     Note = require('../../models/note');
 
-// ------------------------------------------------------------------------- scrape articles
+
 router.get('/scrape', function (req, res, next) {
     request('https://phys.org/science-news/mathematics/', function (error, response, html) {
         let $ = cheerio.load(html);
@@ -41,7 +41,7 @@ router.get('/scrape', function (req, res, next) {
     res.redirect('/');
 });
 
-// ------------------------------------------------------------------------- load *all* articles
+
 router.get('/', function (req, res) {
     Article
         .find({})
@@ -55,7 +55,7 @@ router.get('/', function (req, res) {
         });
 });
 
-// ------------------------------------------------------------------------- load *saved* articles
+
 router.get('/saved', function (req, res) {
     Article
         .find({})
@@ -72,7 +72,7 @@ router.get('/saved', function (req, res) {
         });
 });
 
-// ------------------------------------------------------------------------- save article
+
 router.post('/save/:id', function (req, res) {
     Article.findByIdAndUpdate(req.params.id, {
         $set: { saved: true }
@@ -89,7 +89,7 @@ router.post('/save/:id', function (req, res) {
 });
 
 
-// ------------------------------------------------------------------------- get deleted articles
+
 router.get('/deleted', function (req, res) {
     Article
         .find({})
